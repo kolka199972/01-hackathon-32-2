@@ -9,15 +9,13 @@ export class ClicksModule extends Module {
     #divResult
     #duration
     #mainTimer
-    #button
 
-    constructor(duration){
-        super('Click analizer', `Считать клики (за ${duration} мсек)`)
+    constructor(){
+        super('Click analizer', `Считать клики (за 5 сек)`)
         this.#counterClick = INIT_COUNTER
         this.#counterDoubleClick = INIT_COUNTER
-        this.#duration = duration
+        this.#duration = 5000
         this.#body = document.querySelector('body')
-        this.#button = document.createElement('button')
         this.#mainTimer = 0
 
         this.#createResultBlock()
@@ -56,7 +54,7 @@ export class ClicksModule extends Module {
 
         this.#body.addEventListener('click', onClick)
         this.#body.addEventListener('dblclick', onDoubleClick)
-        this.#body.addEventListener('contextmenu', removeModule)
+        this.#body.addEventListener('contextmenu', removeModule, { once:true })
 
 
         this.#mainTimer = setTimeout(() => {
@@ -97,8 +95,8 @@ export class ClicksModule extends Module {
         this.#divResult.setAttribute('id', 'container')
         this.#body.append(this.#divResult)
         this.#body.style.backgroundColor = '#FFE4E1'
-        container.style.display = 'grid'
-        container.style.justifyContent = 'center'
+        this.#divResult.style.display = 'grid'
+        this.#divResult.style.justifyContent = 'center'
     }
 
     renderResult = () => {
@@ -107,5 +105,5 @@ export class ClicksModule extends Module {
 
 }
 
-const clicksModule = new ClicksModule(5000)
+const clicksModule = new ClicksModule('ClickMod', 'Аналитика кликов')
 clicksModule.trigger()
