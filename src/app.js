@@ -9,13 +9,13 @@ import { BackgroundModule } from './modules/background.module'
 import { GameModule } from './modules/game.module'
 import { ClicksModule } from './modules/clicks.module'
 
-const shapeModule = new ShapeModule('shape', 'Создать фигуру')
-const randomWords = new RandomWords('random', 'Кастомное сообщение')
-const timerModule = new TimerModule('timer', 'Таймер')
-const timeModule = new TimeModule('time', 'Время до Нового Года!')
-const soundModule = new SoundModule('sound', 'Случайный звук')
-const randomColorBg = new BackgroundModule('background', 'Случайный фоновый цвет')
-const gameModule = new GameModule('game', 'Игра')
+const shapeModule = new ShapeModule()
+const randomWords = new RandomWords()
+const timerModule = new TimerModule()
+const timeModule = new TimeModule()
+const soundModule = new SoundModule()
+const randomColorBg = new BackgroundModule()
+const gameModule = new GameModule()
 const clicksModule = new ClicksModule()
 
 const menu = new ContextMenu('#menu', [

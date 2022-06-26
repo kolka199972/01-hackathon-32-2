@@ -4,8 +4,8 @@ import { words } from "../utils"
 
 
 export class RandomWords extends Module {
-	constructor(type, text) {
-        super(type, text)
+	constructor() {
+        super('random', 'Кастомное сообщение')
     }
 
 	trigger() {

@@ -3,8 +3,8 @@ import { getRandomColor, random } from '../utils'
 
 export class GameModule extends Module {
   #app
-  constructor(type, text) {
-    super(type, text)
+  constructor() {
+    super('game', 'Игра!')
     this.#app = document.createElement('div')
     this.#app.className = 'app'
   }

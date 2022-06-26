@@ -2,8 +2,8 @@ import {Module} from '../core/module'
 const plural = require('plural-ru')
 
 export class TimeModule extends Module {
-    constructor(type, text) {
-        super(type, text)
+    constructor() {
+        super('time', 'Время до Нового Года!')
     }
 
 	trigger() {
