@@ -3,8 +3,8 @@ import { getRandomColor, random } from '../utils'
 
 export class ShapeModule extends Module {
   #shapeElement
-  constructor(type, text) {
-    super(type, text)
+  constructor() {
+    super('shape', 'Создать фигуру')
     this.#shapeElement = document.createElement('div')
   }
 

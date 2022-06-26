@@ -4,8 +4,8 @@ const plural = require('plural-ru')
 
 export class TimerModule extends Module {
   #timerElement
-  constructor(type, text) {
-    super(type, text)
+  constructor() {
+    super('timer', 'Таймер')
     this.#timerElement = document.createElement('div')
   }
 
