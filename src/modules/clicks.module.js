@@ -45,12 +45,14 @@ export class ClicksModule extends Module {
 
         const removeModule = (event) => {
             event.preventDefault()
+            this.#body.removeEventListener('click', onClick)
+            this.#body.removeEventListener('dblclick', onDoubleClick)
             this.#divResult.remove()
             this.#body.style.backgroundColor = '#FFFF'
 
         }
 
-        this.#body.style.userSelect = 'none' //Убрать выделение текста при dblclick
+        this.#body.style.userSelect = 'none'
 
         this.#body.addEventListener('click', onClick)
         this.#body.addEventListener('dblclick', onDoubleClick)

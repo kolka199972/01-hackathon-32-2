@@ -15,7 +15,7 @@ export class ContextMenu extends Menu {
 
   open(event) {
     event.preventDefault()
-    deleteSizes(this.el)
+    this.deleteSizes(this.el)
 
     document.body.innerHTML = ''
     document.body.style = 'default'
@@ -58,12 +58,11 @@ export class ContextMenu extends Menu {
   add(Module) {
     this.el.insertAdjacentHTML('beforeend', Module.toHTML())
   }
-}
 
-function deleteSizes(el) {
-  el.style.top = ''
-  el.style.right = ''
-  el.style.bottom = ''
-  el.style.left = ''
+  deleteSizes(el) {
+    el.style.top = ''
+    el.style.right = ''
+    el.style.bottom = ''
+    el.style.left = ''
+  }
 }
-
