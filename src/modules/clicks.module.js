@@ -31,8 +31,6 @@ export class ClicksModule extends Module {
         const onClick = () => {
             timerDiffClicks = setTimeout(() => {
                 if (!preventHelper) {
-                    console.log(this.#counterClick)
-                    console.log(this.#counterDoubleClick)
                     this.incrementCounter()
                 }
                 preventHelper = false
