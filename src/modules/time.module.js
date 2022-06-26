@@ -1,4 +1,5 @@
 import {Module} from '../core/module'
+const plural = require('plural-ru')
 
 export class TimeModule extends Module {
     constructor(type, text) {
@@ -61,19 +62,19 @@ export class TimeModule extends Module {
         element.innerHTML = `
             <div class="timer__block" style="${style}">
                 <span id="days" style="${styleSpan}">12</span>
-                дней
+                <span id="daysStr"></span>    
             </div>
             <div class="timer__block" style="${style}">
                 <span id="hours" style="${styleSpan}">20</span>
-                часов
+                <span id="hoursStr"></span>  
             </div>
             <div class="timer__block" style="${style}">
                 <span id="minutes" style="${styleSpan}">56</span>
-                минут
+                <span id="minutesStr"></span>
             </div>
             <div class="timer__block" style="${style}">
                 <span id="seconds" style="${styleSpan}">20</span>
-                секунд
+                <span id="secondsStr"></span>
             </div>
         `;
 
@@ -109,9 +110,13 @@ export class TimeModule extends Module {
           
                 const timer = document.querySelector(selector),
                     days = timer.querySelector("#days"),
+                    daysStr = timer.querySelector("#daysStr"),
                     hours = timer.querySelector('#hours'),
+                    hoursStr = timer.querySelector('#hoursStr'),
                     minutes = timer.querySelector('#minutes'),
+                    minutesStr = timer.querySelector('#minutesStr'),
                     seconds = timer.querySelector('#seconds'),
+                    secondsStr = timer.querySelector('#secondsStr'),
                     timeInterval = setInterval(updateClock, 1000);
           
                 updateClock();
@@ -120,9 +125,16 @@ export class TimeModule extends Module {
                     const t = getTimeRemaining(endtime);
           
                     days.innerHTML = getZero(t.days);
+                    daysStr.innerHTML = plural(t.days, 'день', 'дня', 'дней')
                     hours.innerHTML = getZero(t.hours);
+                    hoursStr.innerHTML = plural(t.hours, 'час', 'часа', 'часов')
                     minutes.innerHTML = getZero(t.minutes);
+                    minutesStr.innerHTML = plural(t.minutes, 'минута', 'минуты', 'минут')
                     seconds.innerHTML = getZero(t.seconds);
+                    secondsStr.innerHTML = plural(t.seconds, 'секунда', 'секунды', 'секунд')
+
+
+
           
                     if (t.total <= 0) {
                         clearInterval(timeInterval);
