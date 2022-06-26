@@ -17,11 +17,10 @@ export class ClicksModule extends Module {
         this.#duration = 5000
         this.#body = document.querySelector('body')
         this.#mainTimer = 0
-
-        this.#createResultBlock()
     }
 
     trigger = () => {
+        this.#createResultBlock()
 
         clearTimeout(this.#mainTimer)
         this.setInitValue()
@@ -44,7 +43,8 @@ export class ClicksModule extends Module {
             this.incrementDoubleCounter()
         }
 
-        const removeModule = () => {
+        const removeModule = (event) => {
+            event.preventDefault()
             this.#divResult.remove()
             this.#body.style.backgroundColor = '#FFFF'
 
@@ -81,7 +81,7 @@ export class ClicksModule extends Module {
     }
 
     setInitValue = () => {
-        this.#counterClick = INIT_COUNTER
+        this.#counterClick = INIT_COUNTER - 1
         this.#counterDoubleClick = INIT_COUNTER
 
         if (this.#divResult) {
