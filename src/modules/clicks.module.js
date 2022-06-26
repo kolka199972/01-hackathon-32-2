@@ -56,7 +56,6 @@ export class ClicksModule extends Module {
         this.#body.addEventListener('dblclick', onDoubleClick)
         this.#body.addEventListener('contextmenu', removeModule, { once:true })
 
-
         this.#mainTimer = setTimeout(() => {
             this.#body.removeEventListener('click', onClick)
             this.#body.removeEventListener('dblclick', onDoubleClick)
@@ -92,7 +91,6 @@ export class ClicksModule extends Module {
 
     #createResultBlock = () => {
         this.#divResult = document.createElement('div')
-        this.#divResult.setAttribute('id', 'container')
         this.#body.append(this.#divResult)
         this.#body.style.backgroundColor = '#FFE4E1'
         this.#divResult.style.display = 'grid'
@@ -102,8 +100,4 @@ export class ClicksModule extends Module {
     renderResult = () => {
         this.#divResult.innerHTML = `Количество кликов: ${this.#counterClick}, количество двойных кликов: ${this.#counterDoubleClick}`
     }
-
 }
-
-const clicksModule = new ClicksModule('ClickMod', 'Аналитика кликов')
-clicksModule.trigger()

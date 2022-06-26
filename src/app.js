@@ -1,3 +1,5 @@
 import './styles.css'
 
-import './modules/clicks.module'
+import {ClicksModule} from './modules/clicks.module'
+
+const clicksModule = new ClicksModule()
