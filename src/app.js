@@ -7,6 +7,7 @@ import { TimeModule } from './modules/time.module'
 import { SoundModule } from './modules/sound.module'
 import { BackgroundModule } from './modules/background.module'
 import { GameModule } from './modules/game.module'
+import { ClicksModule } from './modules/clicks.module'
 
 const shapeModule = new ShapeModule('shape', 'Создать фигуру')
 const randomWords = new RandomWords('random', 'Кастомное сообщение')
@@ -15,7 +16,7 @@ const timeModule = new TimeModule('time', 'Время до Нового Года
 const soundModule = new SoundModule('sound', 'Случайный звук')
 const randomColorBg = new BackgroundModule('background', 'Случайный фоновый цвет')
 const gameModule = new GameModule('game', 'Игра')
-
+const clicksModule = new ClicksModule()
 
 const menu = new ContextMenu('#menu', [
   shapeModule,
@@ -24,6 +25,7 @@ const menu = new ContextMenu('#menu', [
   timeModule,
   soundModule,
   randomColorBg,
-  gameModule
+  gameModule,
+  clicksModule
 ])
 menu.render()
